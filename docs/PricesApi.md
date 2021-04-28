@@ -33,7 +33,7 @@ api_instance = Vantage::PricesApi.new
 
 product_id = 'product_id_example' # String | 
 
-id = 'id_example' # String | Unique identifier of the price e.g. aws-ec2-m5d_16xlarge-eu_central_1-on_demand-linux_enterprise
+id = 'id_example' # String | 
 
 
 begin
@@ -49,7 +49,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **String**|  | 
- **id** | **String**| Unique identifier of the price e.g. aws-ec2-m5d_16xlarge-eu_central_1-on_demand-linux_enterprise | 
+ **id** | **String**|  | 
 
 ### Return type
 
@@ -85,7 +85,7 @@ end
 
 api_instance = Vantage::PricesApi.new
 
-product_id = 'product_id_example' # String | The Product ID that you wish to query prices for.
+product_id = 'product_id_example' # String | 
 
 
 begin
@@ -100,7 +100,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_id** | **String**| The Product ID that you wish to query prices for. | 
+ **product_id** | **String**|  | 
 
 ### Return type
 
@@ -136,7 +136,7 @@ end
 
 api_instance = Vantage::PricesApi.new
 
-id = 'id_example' # String | Unique identifier of the product e.g. aws-ec2-m5d_16xlarge
+id = 'id_example' # String | 
 
 
 begin
@@ -151,7 +151,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier of the product e.g. aws-ec2-m5d_16xlarge | 
+ **id** | **String**|  | 
 
 ### Return type
 

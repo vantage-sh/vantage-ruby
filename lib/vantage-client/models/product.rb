@@ -29,6 +29,9 @@ module Vantage
     # A unique slug for the provider the product belongs to.
     attr_accessor :provider_id
 
+    # An object of metadata about the product.
+    attr_accessor :details
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +39,8 @@ module Vantage
         :'category' => :'category',
         :'name' => :'name',
         :'service_id' => :'service_id',
-        :'provider_id' => :'provider_id'
+        :'provider_id' => :'provider_id',
+        :'details' => :'details'
       }
     end
 
@@ -47,7 +51,8 @@ module Vantage
         :'category' => :'String',
         :'name' => :'String',
         :'service_id' => :'String',
-        :'provider_id' => :'String'
+        :'provider_id' => :'String',
+        :'details' => :'Object'
       }
     end
 
@@ -78,6 +83,10 @@ module Vantage
       if attributes.has_key?(:'provider_id')
         self.provider_id = attributes[:'provider_id']
       end
+
+      if attributes.has_key?(:'details')
+        self.details = attributes[:'details']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -102,7 +111,8 @@ module Vantage
           category == o.category &&
           name == o.name &&
           service_id == o.service_id &&
-          provider_id == o.provider_id
+          provider_id == o.provider_id &&
+          details == o.details
     end
 
     # @see the `==` method
@@ -114,7 +124,7 @@ module Vantage
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category, name, service_id, provider_id].hash
+      [id, category, name, service_id, provider_id, details].hash
     end
 
     # Builds the object from hash

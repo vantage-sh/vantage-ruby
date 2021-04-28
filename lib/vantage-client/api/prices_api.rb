@@ -21,7 +21,7 @@ module Vantage
     end
     # Returns a price
     # @param product_id 
-    # @param id Unique identifier of the price e.g. aws-ec2-m5d_16xlarge-eu_central_1-on_demand-linux_enterprise
+    # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Price]
     def get_price(product_id, id, opts = {})
@@ -31,7 +31,7 @@ module Vantage
 
     # Returns a price
     # @param product_id 
-    # @param id Unique identifier of the price e.g. aws-ec2-m5d_16xlarge-eu_central_1-on_demand-linux_enterprise
+    # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Price, Fixnum, Hash)>] Price data, response status code and response headers
     def get_price_with_http_info(product_id, id, opts = {})
@@ -76,7 +76,7 @@ module Vantage
       return data, status_code, headers
     end
     # Return available Prices across all Regions for a Product.
-    # @param product_id The Product ID that you wish to query prices for.
+    # @param product_id 
     # @param [Hash] opts the optional parameters
     # @return [Prices]
     def get_prices(product_id, opts = {})
@@ -85,7 +85,7 @@ module Vantage
     end
 
     # Return available Prices across all Regions for a Product.
-    # @param product_id The Product ID that you wish to query prices for.
+    # @param product_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Prices, Fixnum, Hash)>] Prices data, response status code and response headers
     def get_prices_with_http_info(product_id, opts = {})
@@ -126,7 +126,7 @@ module Vantage
       return data, status_code, headers
     end
     # Return a product
-    # @param id Unique identifier of the product e.g. aws-ec2-m5d_16xlarge
+    # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Product]
     def get_product(id, opts = {})
@@ -135,7 +135,7 @@ module Vantage
     end
 
     # Return a product
-    # @param id Unique identifier of the product e.g. aws-ec2-m5d_16xlarge
+    # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Product, Fixnum, Hash)>] Product data, response status code and response headers
     def get_product_with_http_info(id, opts = {})

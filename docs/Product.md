@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **String** | The common name of the product. | [optional] 
 **service_id** | **String** | A unique slug for the service the product belongs to. | [optional] 
 **provider_id** | **String** | A unique slug for the provider the product belongs to. | [optional] 
+**details** | **Object** | An object of metadata about the product. | [optional] 
 
 

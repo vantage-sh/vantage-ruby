@@ -35,7 +35,7 @@ describe 'PricesApi' do
   # unit tests for get_price
   # Returns a price
   # @param product_id 
-  # @param id Unique identifier of the price e.g. aws-ec2-m5d_16xlarge-eu_central_1-on_demand-linux_enterprise
+  # @param id 
   # @param [Hash] opts the optional parameters
   # @return [Price]
   describe 'get_price test' do
@@ -46,7 +46,7 @@ describe 'PricesApi' do
 
   # unit tests for get_prices
   # Return available Prices across all Regions for a Product.
-  # @param product_id The Product ID that you wish to query prices for.
+  # @param product_id 
   # @param [Hash] opts the optional parameters
   # @return [Prices]
   describe 'get_prices test' do
@@ -57,7 +57,7 @@ describe 'PricesApi' do
 
   # unit tests for get_product
   # Return a product
-  # @param id Unique identifier of the product e.g. aws-ec2-m5d_16xlarge
+  # @param id 
   # @param [Hash] opts the optional parameters
   # @return [Product]
   describe 'get_product test' do

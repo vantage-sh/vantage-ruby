@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.com/vantage-sh/vantage-ruby.svg?branch=main)](https://www.travis-ci.com/vantage-sh/vantage-ruby)
+
 # vantage-client
 
 Vantage - the Ruby gem for the Vantage

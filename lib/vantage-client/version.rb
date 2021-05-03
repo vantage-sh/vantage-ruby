@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.19
 =end
 
 module Vantage
-  VERSION = '0.0.6'
+  VERSION = '0.0.8'
 end

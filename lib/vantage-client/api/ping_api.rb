@@ -21,15 +21,15 @@ module Vantage
     end
     # This is a health check endpoint that can be used to determine Vantage API healthiness. It will return a 200 success with the raw text of \"pong\" if everything is running smoothly.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [Object]
     def ping(opts = {})
-      ping_with_http_info(opts)
-      nil
+      data, _status_code, _headers = ping_with_http_info(opts)
+      data
     end
 
     # This is a health check endpoint that can be used to determine Vantage API healthiness. It will return a 200 success with the raw text of \&quot;pong\&quot; if everything is running smoothly.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
     def ping_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PingApi.ping ...'
@@ -56,7 +56,8 @@ module Vantage
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'Object')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PingApi#ping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

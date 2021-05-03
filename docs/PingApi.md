@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **ping**
-> ping
+> Object ping
 
 
 
@@ -27,7 +27,8 @@ end
 api_instance = Vantage::PingApi.new
 
 begin
-  api_instance.ping
+  result = api_instance.ping
+  p result
 rescue Vantage::ApiError => e
   puts "Exception when calling PingApi->ping: #{e}"
 end
@@ -38,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-nil (empty response body)
+**Object**
 
 ### Authorization
 

@@ -35,7 +35,7 @@ describe 'PingApi' do
   # unit tests for ping
   # This is a health check endpoint that can be used to determine Vantage API healthiness. It will return a 200 success with the raw text of \&quot;pong\&quot; if everything is running smoothly.
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [Object]
   describe 'ping test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

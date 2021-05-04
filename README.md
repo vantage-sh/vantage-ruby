@@ -5,7 +5,7 @@
 ![Vantage Picture](https://uploads-ssl.webflow.com/5f9ba05ba40d6414f341df34/5f9bb1764b6670c6f7739564_moutain-scene.svg)
 
 
-[Vantage](http://vantage.sh/) is a cloud cost transparency platform. This is the official Ruby client for the [Vantage API](http://vantage.readme.io/). You can use the API to get EC2 instance price and product information through a few simple-to-use API calls. Feedback we get from users is that this is significantly easier than learning and using AWS Pricing APIs. We have plans to expand the data available through this API in the future.
+[Vantage](http://vantage.sh/) is a cloud cost transparency platform. This is the official Ruby client for the [Vantage API](http://vantage.readme.io/). You can use the API to get EC2 instance price and product information through a few simple-to-use API calls. The data offered through this API is heavily inspired from data avaiable from [ec2instances.info](http://ec2instances.info/). The feedback we get from users is that this API is significantly easier than learning and using AWS Pricing APIs. We have plans to expand the data available through this API in the future.
 
 ## Need Help?
 
@@ -20,14 +20,14 @@ gem install vantage-client
 ```
 
 ## Generate a Free API Token
-The Vantage API is provided completely for free but requires a free API token to use. To generate a free API Token, follow these steps:
+The Vantage API is provided completely for free but requires an API token to use. To generate a free API token, follow these steps:
 
 * Head to [http://vantage.sh/](http://vantage.sh/)
 * Register a free account and confirm your email
-* When you're asked "What would you like to do first?" click "Access Cloud Pricing API"
-* Create an API Token from the account profile page and you're all set
+* When you're asked _"What would you like to do first?"_ click _"Access Cloud Pricing API"_
+* Create an API token from the account profile page and you're all set
 
-You'll only need to do this once and you can use your API Token for all API usage going forward. 
+You'll only need to do this once and you can use your API token for all usage going forward. 
 
 ## API Primitives
 
@@ -47,12 +47,12 @@ Once you've installed the client, you'll want to confirm your API token is worki
 # Load the gem
 require 'vantage-client'
 
-# Configure Vantage with your free API token
+# Configure Vantage with your API token. Replace "YOUR_API_TOKEN" with the token you generate. 
 Vantage.configure do |config|
   config.access_token = 'YOUR_API_TOKEN'
 end
 
-# We offer a ping endpoint for testing and connectivity purposes.
+# We offer a 'ping' endpoint for validating access tokens work and confirm API connectivity.
 vantage_client = Vantage::PingApi.new
 
 begin
@@ -60,6 +60,10 @@ begin
 rescue Vantage::ApiError => e
   puts "Exception when calling PingApi->ping: #{e}"
 end
+
+# {
+#   :ping => "pong"
+# }
 
 ```
 
@@ -72,7 +76,7 @@ Getting EC2 instance product information is one of the most used functions of th
 # Load the gem
 require 'vantage-client'
 
-# Configure Vantage with your free API token
+# Configure Vantage with your API token. Replace "YOUR_API_TOKEN" with the token you generate. 
 Vantage.configure do |config|
   config.access_token = 'YOUR_API_TOKEN'
 end
@@ -107,14 +111,16 @@ puts response.products.first
 
 ## Getting EC2 Instance Pricing
 
-Getting the price of an EC2 instance is also easy to do. Here's an example of how to get the price for a c5.xlarge. You'll need the product ID from the prior call to retrive prices: 
+Getting the price of an EC2 instance is also easy to do. Here's an example of how to get the price for a c5.xlarge. You'll need the product ID from the prior call to retrive prices. Note that Vantage will return all prices across all regions, platforms and lifecycle so client-side you'll want to filter for the appropriate region, platform and lifecycle.
+
+The price returned in the example below will give you the **on-demand** price for a **linux** EC2 instance in **us-east-1**.
 
 ```ruby 
 
 # Load the gem
 require 'vantage-client'
 
-# Configure Vantage with your Free API Token
+# Configure Vantage with your API token.  Replace "YOUR_API_TOKEN" with the token you generate. 
 Vantage.configure do |config|
   config.access_token = 'YOUR_API_TOKEN'
 end

@@ -13,51 +13,36 @@ Swagger Codegen version: 2.4.21
 require 'date'
 
 module Vantage
-  # Price model
-  class Price
-    attr_accessor :id
+  class Cost
+    # The date the cost was accrued. ISO 8601 Formatted - 2021-07-15 or 2021-07-15T19:20:48+00:00.
+    attr_accessor :accrued_at
 
-    # The unit in which the amount is billed.
-    attr_accessor :unit
-
-    # The region the price is specific to.
-    attr_accessor :region
-
-    # The part of the product the price applies to. (compute, transfer, etc..)
-    attr_accessor :rate_type
-
-    # The currency of the amount.
-    attr_accessor :currency
-
-    # The amount of money this specific product price costs.
+    # The amount of the cost.
     attr_accessor :amount
 
-    # Service specific metadata.
-    attr_accessor :details
+    # The service provider where the cost was incurred. e.g. AWS
+    attr_accessor :provider
+
+    # The service which incurred the cost. e.g. Amazon ElastiCache
+    attr_accessor :service
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'unit' => :'unit',
-        :'region' => :'region',
-        :'rate_type' => :'rate_type',
-        :'currency' => :'currency',
+        :'accrued_at' => :'accrued_at',
         :'amount' => :'amount',
-        :'details' => :'details'
+        :'provider' => :'provider',
+        :'service' => :'service'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'unit' => :'String',
-        :'region' => :'String',
-        :'rate_type' => :'String',
-        :'currency' => :'String',
-        :'amount' => :'Float',
-        :'details' => :'Object'
+        :'accrued_at' => :'String',
+        :'amount' => :'String',
+        :'provider' => :'String',
+        :'service' => :'String'
       }
     end
 
@@ -69,32 +54,20 @@ module Vantage
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'unit')
-        self.unit = attributes[:'unit']
-      end
-
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
-      end
-
-      if attributes.has_key?(:'rate_type')
-        self.rate_type = attributes[:'rate_type']
-      end
-
-      if attributes.has_key?(:'currency')
-        self.currency = attributes[:'currency']
+      if attributes.has_key?(:'accrued_at')
+        self.accrued_at = attributes[:'accrued_at']
       end
 
       if attributes.has_key?(:'amount')
         self.amount = attributes[:'amount']
       end
 
-      if attributes.has_key?(:'details')
-        self.details = attributes[:'details']
+      if attributes.has_key?(:'provider')
+        self.provider = attributes[:'provider']
+      end
+
+      if attributes.has_key?(:'service')
+        self.service = attributes[:'service']
       end
     end
 
@@ -116,13 +89,10 @@ module Vantage
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          unit == o.unit &&
-          region == o.region &&
-          rate_type == o.rate_type &&
-          currency == o.currency &&
+          accrued_at == o.accrued_at &&
           amount == o.amount &&
-          details == o.details
+          provider == o.provider &&
+          service == o.service
     end
 
     # @see the `==` method
@@ -134,7 +104,7 @@ module Vantage
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, unit, region, rate_type, currency, amount, details].hash
+      [accrued_at, amount, provider, service].hash
     end
 
     # Builds the object from hash

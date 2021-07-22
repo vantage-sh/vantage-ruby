@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 
 # **get_prices**
-> Prices get_prices(product_id)
+> Prices get_prices(product_id, opts)
 
 
 
@@ -87,9 +87,13 @@ api_instance = Vantage::PricesApi.new
 
 product_id = 'product_id_example' # String | 
 
+opts = { 
+  page: 2, # Integer | The page of results to return.
+  limit: 500 # Integer | The amount of results to return. The maximum is 1000
+}
 
 begin
-  result = api_instance.get_prices(product_id)
+  result = api_instance.get_prices(product_id, opts)
   p result
 rescue Vantage::ApiError => e
   puts "Exception when calling PricesApi->get_prices: #{e}"
@@ -101,6 +105,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **String**|  | 
+ **page** | **Integer**| The page of results to return. | [optional] 
+ **limit** | **Integer**| The amount of results to return. The maximum is 1000 | [optional] 
 
 ### Return type
 
@@ -190,7 +196,9 @@ api_instance = Vantage::PricesApi.new
 opts = { 
   provider_id: 'provider_id_example', # String | Query by Provider to list all Products across all Services for a Provider. e.g. aws
   service_id: 'service_id_example', # String | Query by Service to list all Products for a specific provider service. e.g. aws-ec2
-  name: 'name_example' # String | Query by name of the Product to see a list of products which match that name. e.g. m5a.16xlarge
+  name: 'name_example', # String | Query by name of the Product to see a list of products which match that name. e.g. m5a.16xlarge
+  page: 2, # Integer | The page of results to return.
+  limit: 500 # Integer | The amount of results to return. The maximum is 1000
 }
 
 begin
@@ -208,6 +216,8 @@ Name | Type | Description  | Notes
  **provider_id** | **String**| Query by Provider to list all Products across all Services for a Provider. e.g. aws | [optional] 
  **service_id** | **String**| Query by Service to list all Products for a specific provider service. e.g. aws-ec2 | [optional] 
  **name** | **String**| Query by name of the Product to see a list of products which match that name. e.g. m5a.16xlarge | [optional] 
+ **page** | **Integer**| The page of results to return. | [optional] 
+ **limit** | **Integer**| The amount of results to return. The maximum is 1000 | [optional] 
 
 ### Return type
 
@@ -225,7 +235,7 @@ Name | Type | Description  | Notes
 
 
 # **get_providers**
-> Providers get_providers
+> Providers get_providers(opts)
 
 
 
@@ -243,8 +253,13 @@ end
 
 api_instance = Vantage::PricesApi.new
 
+opts = { 
+  page: 2, # Integer | The page of results to return.
+  limit: 500 # Integer | The amount of results to return. The maximum is 1000
+}
+
 begin
-  result = api_instance.get_providers
+  result = api_instance.get_providers(opts)
   p result
 rescue Vantage::ApiError => e
   puts "Exception when calling PricesApi->get_providers: #{e}"
@@ -252,7 +267,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| The page of results to return. | [optional] 
+ **limit** | **Integer**| The amount of results to return. The maximum is 1000 | [optional] 
 
 ### Return type
 
@@ -289,7 +308,9 @@ end
 api_instance = Vantage::PricesApi.new
 
 opts = { 
-  provider_id: 'provider_id_example' # String | Query services for a specific provider. e.g. aws
+  provider_id: 'provider_id_example', # String | Query services for a specific provider. e.g. aws
+  page: 2, # Integer | The page of results to return.
+  limit: 500 # Integer | The amount of results to return. The maximum is 1000
 }
 
 begin
@@ -305,6 +326,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **provider_id** | **String**| Query services for a specific provider. e.g. aws | [optional] 
+ **page** | **Integer**| The page of results to return. | [optional] 
+ **limit** | **Integer**| The amount of results to return. The maximum is 1000 | [optional] 
 
 ### Return type
 

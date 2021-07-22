@@ -52,13 +52,20 @@ Vantage.configure do |config|
   config.access_token = 'YOUR_API_TOKEN'
 end
 
-# We offer a 'ping' endpoint for validating access tokens work and confirm API connectivity.
-vantage_client = Vantage::PingApi.new
+api_instance = Vantage::CostsApi.new
+
+report_id = 'report_id_example' # String | 
+
+opts = { 
+  start_date: 'start_date_example', # String | Query costs by the first date you would like to filter from. ISO 8601 Formatted - 2021-07-15 or 2021-07-15T19:20:48+00:00.
+  end_date: 'end_date_example' # String | Query costs by the last date you would like to filter to. ISO 8601 Formatted - 2021-07-15 or 2021-07-15T19:20:48+00:00.
+}
 
 begin
-  vantage_client.ping
+  result = api_instance.get_costs(report_id, opts)
+  p result
 rescue Vantage::ApiError => e
-  puts "Exception when calling PingApi->ping: #{e}"
+  puts "Exception when calling CostsApi->get_costs: #{e}"
 end
 
 # {
@@ -145,18 +152,20 @@ puts response.prices.first
 #     :lifecycle=>"on-demand"
 #   }
 # }
-
-
 ```
 
 ## Documentation for Models
 
+ - [Vantage::Cost](docs/Cost.md)
+ - [Vantage::Costs](docs/Costs.md)
  - [Vantage::Price](docs/Price.md)
  - [Vantage::Prices](docs/Prices.md)
  - [Vantage::Product](docs/Product.md)
  - [Vantage::Products](docs/Products.md)
  - [Vantage::Provider](docs/Provider.md)
  - [Vantage::Providers](docs/Providers.md)
+ - [Vantage::Report](docs/Report.md)
+ - [Vantage::Reports](docs/Reports.md)
  - [Vantage::Service](docs/Service.md)
  - [Vantage::Services](docs/Services.md)
 

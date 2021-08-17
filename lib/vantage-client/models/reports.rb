@@ -13,51 +13,25 @@ Swagger Codegen version: 2.4.21
 require 'date'
 
 module Vantage
-  # Price model
-  class Price
-    attr_accessor :id
+  # Reports model
+  class Reports
+    attr_accessor :links
 
-    # The unit in which the amount is billed.
-    attr_accessor :unit
-
-    # The region the price is specific to.
-    attr_accessor :region
-
-    # The part of the product the price applies to. (compute, transfer, etc..)
-    attr_accessor :rate_type
-
-    # The currency of the amount.
-    attr_accessor :currency
-
-    # The amount of money this specific product price costs.
-    attr_accessor :amount
-
-    # Service specific metadata.
-    attr_accessor :details
+    attr_accessor :reports
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'unit' => :'unit',
-        :'region' => :'region',
-        :'rate_type' => :'rate_type',
-        :'currency' => :'currency',
-        :'amount' => :'amount',
-        :'details' => :'details'
+        :'links' => :'links',
+        :'reports' => :'reports'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'unit' => :'String',
-        :'region' => :'String',
-        :'rate_type' => :'String',
-        :'currency' => :'String',
-        :'amount' => :'Float',
-        :'details' => :'Object'
+        :'links' => :'Object',
+        :'reports' => :'Array<Report>'
       }
     end
 
@@ -69,32 +43,14 @@ module Vantage
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'links')
+        self.links = attributes[:'links']
       end
 
-      if attributes.has_key?(:'unit')
-        self.unit = attributes[:'unit']
-      end
-
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
-      end
-
-      if attributes.has_key?(:'rate_type')
-        self.rate_type = attributes[:'rate_type']
-      end
-
-      if attributes.has_key?(:'currency')
-        self.currency = attributes[:'currency']
-      end
-
-      if attributes.has_key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.has_key?(:'details')
-        self.details = attributes[:'details']
+      if attributes.has_key?(:'reports')
+        if (value = attributes[:'reports']).is_a?(Array)
+          self.reports = value
+        end
       end
     end
 
@@ -116,13 +72,8 @@ module Vantage
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          unit == o.unit &&
-          region == o.region &&
-          rate_type == o.rate_type &&
-          currency == o.currency &&
-          amount == o.amount &&
-          details == o.details
+          links == o.links &&
+          reports == o.reports
     end
 
     # @see the `==` method
@@ -134,7 +85,7 @@ module Vantage
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, unit, region, rate_type, currency, amount, details].hash
+      [links, reports].hash
     end
 
     # Builds the object from hash

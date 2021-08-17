@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 
-This is a health check endpoint that can be used to determine Vantage API healthiness. It will return a 200 success with the raw text of \"pong\" if everything is running smoothly.
+This is a health check endpoint that can be used to determine Vantage API healthiness. It will return 200 if everything is running smoothly.
 
 ### Example
 ```ruby

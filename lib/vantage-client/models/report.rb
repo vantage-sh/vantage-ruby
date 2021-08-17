@@ -13,38 +13,34 @@ Swagger Codegen version: 2.4.21
 require 'date'
 
 module Vantage
-  # Price model
-  class Price
+  # Report model
+  class Report
     attr_accessor :id
 
-    # The unit in which the amount is billed.
-    attr_accessor :unit
+    # The title of the cost report.
+    attr_accessor :title
 
-    # The region the price is specific to.
-    attr_accessor :region
+    # The date and time, in UTC, the report was created. ISO 8601 Formatted - 2021-01-01 or 2021-01-01T00:00:00Z.
+    attr_accessor :earliest_cost_date
 
-    # The part of the product the price applies to. (compute, transfer, etc..)
-    attr_accessor :rate_type
+    # The date and time, in UTC, the report was created. ISO 8601 Formatted - 2021-07-31 or 2021-07-31T00:00:00Z.
+    attr_accessor :latest_cost_date
 
-    # The currency of the amount.
-    attr_accessor :currency
+    # The date and time, in UTC, the report was created. ISO 8601 Formatted - 2021-07-15 or 2021-07-15T00:00:00Z.
+    attr_accessor :created_at
 
-    # The amount of money this specific product price costs.
-    attr_accessor :amount
-
-    # Service specific metadata.
-    attr_accessor :details
+    # The name of the workspace the report is a part of.
+    attr_accessor :workspace
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'unit' => :'unit',
-        :'region' => :'region',
-        :'rate_type' => :'rate_type',
-        :'currency' => :'currency',
-        :'amount' => :'amount',
-        :'details' => :'details'
+        :'title' => :'title',
+        :'earliest_cost_date' => :'earliest_cost_date',
+        :'latest_cost_date' => :'latest_cost_date',
+        :'created_at' => :'created_at',
+        :'workspace' => :'workspace'
       }
     end
 
@@ -52,12 +48,11 @@ module Vantage
     def self.swagger_types
       {
         :'id' => :'String',
-        :'unit' => :'String',
-        :'region' => :'String',
-        :'rate_type' => :'String',
-        :'currency' => :'String',
-        :'amount' => :'Float',
-        :'details' => :'Object'
+        :'title' => :'String',
+        :'earliest_cost_date' => :'String',
+        :'latest_cost_date' => :'String',
+        :'created_at' => :'String',
+        :'workspace' => :'String'
       }
     end
 
@@ -73,28 +68,24 @@ module Vantage
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'unit')
-        self.unit = attributes[:'unit']
+      if attributes.has_key?(:'title')
+        self.title = attributes[:'title']
       end
 
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.has_key?(:'earliest_cost_date')
+        self.earliest_cost_date = attributes[:'earliest_cost_date']
       end
 
-      if attributes.has_key?(:'rate_type')
-        self.rate_type = attributes[:'rate_type']
+      if attributes.has_key?(:'latest_cost_date')
+        self.latest_cost_date = attributes[:'latest_cost_date']
       end
 
-      if attributes.has_key?(:'currency')
-        self.currency = attributes[:'currency']
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.has_key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.has_key?(:'details')
-        self.details = attributes[:'details']
+      if attributes.has_key?(:'workspace')
+        self.workspace = attributes[:'workspace']
       end
     end
 
@@ -117,12 +108,11 @@ module Vantage
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          unit == o.unit &&
-          region == o.region &&
-          rate_type == o.rate_type &&
-          currency == o.currency &&
-          amount == o.amount &&
-          details == o.details
+          title == o.title &&
+          earliest_cost_date == o.earliest_cost_date &&
+          latest_cost_date == o.latest_cost_date &&
+          created_at == o.created_at &&
+          workspace == o.workspace
     end
 
     # @see the `==` method
@@ -134,7 +124,7 @@ module Vantage
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, unit, region, rate_type, currency, amount, details].hash
+      [id, title, earliest_cost_date, latest_cost_date, created_at, workspace].hash
     end
 
     # Builds the object from hash

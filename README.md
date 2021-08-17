@@ -67,11 +67,6 @@ begin
 rescue Vantage::ApiError => e
   puts "Exception when calling CostsApi->get_costs: #{e}"
 end
-
-# {
-#   :ping => "pong"
-# }
-
 ```
 
 ## Getting EC2 Instance Information

@@ -113,7 +113,7 @@ puts response.products.first
 
 ## Getting EC2 Instance Pricing
 
-Getting the price of an EC2 instance is also easy to do. Here's an example of how to get the price for a c5.xlarge. You'll need the product ID from the prior call to retrive prices. Note that Vantage will return all prices across all regions, platforms and lifecycle so client-side you'll want to filter for the appropriate region, platform and lifecycle.
+Getting the price of an EC2 instance is also easy to do. Here's an example of how to get the price for a c5.xlarge. You'll need the product ID from the prior call to retrieve prices. Note that Vantage will return all prices across all regions, platforms and lifecycle so client-side you'll want to filter for the appropriate region, platform and lifecycle.
 
 The price returned in the example below will give you the **on-demand** price for a **linux** EC2 instance in **us-east-1**.
 
